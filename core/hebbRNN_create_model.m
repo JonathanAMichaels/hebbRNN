@@ -58,14 +58,13 @@ function net = hebbRNN_create_model(N, B, I, p, g, dt, tau, varargin)
 %
 % net -- the network structure
 %
-% Version release date: ##.##.####
 %
 % Copyright (c) Jonathan A Michaels 2016
 % German Primate Center
 % jonathanamichaels AT gmail DOT com
 %
-% If used in published work, please link to:
-% ??
+% If used in published work please see repository README.md for citation
+% and license information: https://github.com/JonathanAMichaels/hebbRNN
 
 
 actFunType = 'tanh'; % Default activation function

@@ -1,4 +1,5 @@
 # hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks
+
 **Authors:** [Jonathan A. Michaels](http://www.jmichaels.me/) & [Hansjörg Scherberger](http://www.dpz.eu/en/unit/neurobiology.html)
 
 **Version:** 1.0
@@ -7,19 +8,22 @@
 
 **Date:** 10.08.2016
 
+[![DOI](https://zenodo.org/badge/22906/JonathanAMichaels/hebbRNN.svg)](https://zenodo.org/badge/latestdoi/22906/JonathanAMichaels/hebbRNN)
 ## What is hebbRNN?
 
 ...
 
-### Documentation & Examples
+## Documentation & Examples
 All functions are documented throughout, and two examples are provided with the release.
 
-#### Example:
+### Example: a delayed nonmatch-to-sample task
+related file: [hebbRNN_Example_DNMS.m](https://github.com/JonathanAMichaels/hebbRNN/blob/master/examples/hebbRNN_Example_DNMS.m)
 
-#### Examples:
+### Example: a center-out reaching task
+related file: [hebbRNN_Example_CO.m](https://github.com/JonathanAMichaels/hebbRNN/blob/master/examples/hebbRNN_Example_CO.m)
 
 
-### Installation Instructions
+## Installation Instructions
 
 The code package runs in Matlab, and should be compatible with any version.
 To install the package, simply add all folders and subfolders to the Matlab path using the set path option.

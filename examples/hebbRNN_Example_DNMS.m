@@ -1,18 +1,16 @@
 % hebbRNN_Example_DNMS
 %
 % This function illustrates an example of reward-modulated Hebbian learning
-% in recurrent neural networks to complete a delayed nonmatch-to-sample
+% in a recurrent neural network to complete a delayed nonmatch-to-sample
 % task.
 %
-%
-% Version release date: ##.##.####
 %
 % Copyright (c) Jonathan A Michaels 2016
 % German Primate Center
 % jonathanamichaels AT gmail DOT com
 %
-% If used in published work, please link to:
-% ??
+% If used in published work please see repository README.md for citation
+% and license information: https://github.com/JonathanAMichaels/hebbRNN
 
 
 clear
