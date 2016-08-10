@@ -1,10 +1,12 @@
 ---
 title: 'hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks'
+bibliography: paper.bib
+date: "10 August 2016"
+output: pdf_document
 tags:
   - learning
   - plasticity
   - neural network
-  - recurrent
   - Hebbian
   - RNN
 authors:
@@ -13,10 +15,7 @@ authors:
    affiliation: German Primate Center, Göttingen, Germany
  - name: Hansjörg Scherberger
    orcid:
-   affiliation: German Primate Center, Göttingen, Germany
-   Biology Department, University of Göttingen, Germany
-date: 10 August 2016
-bibliography: paper.bib
+   affiliation: German Primate Center, Göttingen, Germany; Biology Department, University of Göttingen, Germany
 ---
 
 # Summary
