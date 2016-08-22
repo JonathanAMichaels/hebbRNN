@@ -41,7 +41,7 @@ end
 % specified by the input.
 
 %% Initialize network parameters
-N = 200; % Number of neurons
+N = 150; % Number of neurons
 B = size(targ{1},1); % Outputs
 I = size(inp{1},1); % Inputs
 p = 1; % Sparsity
@@ -50,24 +50,25 @@ dt = 1; % Time step
 tau = 30; % Time constant
 
 %% Initialize learning parameters
-eta = 0.1; % Learning rate
+eta = 0.5; % Learning rate
 perturbProb = 3; % Frequency of neural perturbation per neuron (Hz)
 systemNoise = 0.0; % Network noise level
 x0 = zeros(N,1); % Initial activation state
-tolerance = 0.09; % Desired error tolerance
+tolerance = 0.08; % Desired error tolerance
 evalOpts = [2 20]; % Plotting level and frequency of evaluation
-targettimes = size(targ{cond},2); % times which are evaluated in the error calculation
+targettimes = size(targ{cond},2)-1:size(targ{cond},2); % times which are evaluated in the error calculation
 targetFun = @hebbRNN_COTargetFun; % handle of custom target function
 
-rng(1)
+rng(0)
 %% Create network
 % This function initializes your network. Look inside to see information
 % about the many optional parameters
 net = hebbRNN_create_model(N, B, I, p, g, dt, tau, 'netNoiseSigma', systemNoise, 'useBiasNeurons', true, 'numBiasNeurons', 4, ...
-    'feedback', false, 'actFun', 'tanh', 'energyCost', 0.2);
+    'feedback', false, 'actFun', 'tanh', 'energyCost', 0.1);
 
 %% Train network
 % This step should take about 5 minutes, depending on your processor.
+% Can be stopped at any time by pressing the STOP button.
 % Look inside to see information about the many optional parameters.
 [net, learnStats] = hebbRNN_learn_model(x0, net, targ, perturbProb, eta, 'input', inp, ...
     'tolerance', tolerance, 'evalOpts', evalOpts, ...
@@ -112,7 +113,7 @@ for cond = 1:length(inp)
         axis([-1.2 4.5 kin(cond).initvals(2) 1.2])
         axis off
         drawnow
-        pause(0.01)
+        pause(0.02)
     end
-    pause(0.2)
+    pause(0.5)
 end
