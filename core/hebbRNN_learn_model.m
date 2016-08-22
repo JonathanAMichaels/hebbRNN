@@ -214,7 +214,7 @@ allZ = zeros(niters,B);
 allR = zeros(niters,N);
 allX = zeros(niters,N);
 
-% Forward-pass
+%% Forward-pass to establish expected reward
 switch batchType
     case 'pseudorand'
         condList = randperm(length(F));
@@ -238,8 +238,8 @@ end
 
 %% Main Program %%
 % Runs until tolerated error is met or stop button is pressed
-figure(10)
-set(gcf, 'Position', [0 5000 100 50], 'MenuBar', 'none', 'ToolBar', 'none')
+figure(97)
+set(gcf, 'Position', [0 5000 100 50], 'MenuBar', 'none', 'ToolBar', 'none', 'Name', 'Stop', 'NumberTitle', 'off')
 UIButton = uicontrol('Style', 'togglebutton', 'String', 'STOP', 'Position', [0 0 100 50], 'FontSize', 25);
 while mErr > tol && UIButton.Value == 0
     switch batchType
@@ -448,6 +448,7 @@ toc
             legend([h2(1,1) h3(1,1)], 'Network Output', 'Target Output', 'Location', 'SouthWest')
             xlabel('Time Steps')
             ylabel('Output')
+            set(gca, 'XLim', [1 size(plotStats.bigZ,1)])
             subplot(2,1,2)
             hold on
             for condCount = 1:size(plotStats.bigR,3)
@@ -455,6 +456,7 @@ toc
             end
             xlabel('Time Steps')
             ylabel('Firing Rate')
+            set(gca, 'XLim', [1 size(plotStats.bigR,1)])
         end
         drawnow
     end
