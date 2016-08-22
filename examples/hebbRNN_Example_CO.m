@@ -35,10 +35,10 @@ for cond = 1:numConds
     inp{cond}(numConds+1,1:targetFunPassthrough.kinTimes-1) = 1;
     targ{cond} = [ones(moveTime,1)*sin(ang(cond)) ones(moveTime,1)*cos(ang(cond))]';
 end
-% In the center-out reaching task the network needs to produce joint angle
+% In the center-out reaching task the network needs to produce the joint angle
 % velocities of a two-segment arm to reach to a number of peripheral
-% targets in the 2D plane based on the desired target specified by the
-% input.
+% targets spaced along a circle in the 2D plane, based on the desired target
+% specified by the input.
 
 %% Initialize network parameters
 N = 200; % Number of neurons
@@ -54,7 +54,7 @@ eta = 0.1; % Learning rate
 perturbProb = 3; % Frequency of neural perturbation per neuron (Hz)
 systemNoise = 0.0; % Network noise level
 x0 = zeros(N,1); % Initial activation state
-tolerance = 0.1; % Desired error tolerance
+tolerance = 0.09; % Desired error tolerance
 evalOpts = [2 20]; % Plotting level and frequency of evaluation
 targettimes = size(targ{cond},2); % times which are evaluated in the error calculation
 targetFun = @hebbRNN_COTargetFun; % handle of custom target function
