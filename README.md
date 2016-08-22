@@ -42,7 +42,7 @@ All functions are documented throughout, and two examples illustrating the inten
 
 In the delayed nonmatch-to-sample task the network receives two temporally separated inputs. Each input lasts 200ms and there is a 200ms gap between them. The goal of the task is to respond with one value if the inputs were identical, and a different value if they were not. This response must be independent of the order of the signals and therefore requires the network to remember the first input!
 
-elated file: hebbRNN_Example_DNMS.m
+related file: hebbRNN_Example_DNMS.m
 
 ### Example: a center-out reaching task
 

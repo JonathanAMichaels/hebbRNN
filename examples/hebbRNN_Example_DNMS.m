@@ -66,7 +66,7 @@ systemNoise = 0.1; % Network noise level
 x0 = zeros(N,1); % Initial activation state
 tolerance = 0.05; % Desired error tolerance
 evalOpts = [2 20]; % Plotting level and frequency of evaluation
-targettimes = size(targ{1},2)-199:size(targ{1},2); % times which are evaluated in the error calculation
+targettimes = size(targ{1},2)-99:size(targ{1},2); % times which are evaluated in the error calculation
 
 rng(0)
 %% Create network
