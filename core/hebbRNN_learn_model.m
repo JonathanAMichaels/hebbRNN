@@ -104,6 +104,9 @@ function [net, varargout] = hebbRNN_learn_model(x0, net, F, perturbProb, eta, va
 % and license information: https://github.com/JonathanAMichaels/hebbRNN
 
 
+% Start counting
+tic
+
 % Variable output considerations
 nout = max(nargout,1)-1;
 
@@ -340,6 +343,8 @@ if ( nout >= 1 )
     varargout{1} = errStats;
 end
 
+disp('Training time required:')
+toc
 
 %% Recurrent Neural Network Engine %%
     function internalRunModel(thisPerturbProb)
@@ -417,29 +422,39 @@ end
             disp(['Error: ' num2str(plotStats.mErr) ' --- Mean dJ: ' num2str(plotStats.mdJ) ' --- %Clipped: ' num2str(mean(plotStats.percentClipped))])
         end
         if evalOptions(1) >= 1
-            figure(1)
+            figure(98)
+            set(gcf, 'Name', 'Error', 'NumberTitle', 'off')
             c = lines(size(plotStats.allErr,2));
             for type = 1:size(plotStats.allErr,2)
-                plot(plotStats.pass, mean(plotStats.allErr(:,type)), '.', 'MarkerSize', 20, 'Color', c(type,:))
+                h1(type) = plot(plotStats.pass, mean(plotStats.allErr(:,type)), '.', 'MarkerSize', 20, 'Color', c(type,:));
                 hold on
             end                
             axis([1 plotStats.pass+0.1 0 max(squeeze(max(mean(errStats.err,1),[],3)))])
+            xlabel('Training Iteration')
+            ylabel('Mean Error')
+            legend(h1, 'Mean Output Error', 'Mean Energy Cost Error', 'Location', 'SouthWest')
         end
         if evalOptions(1) >= 2
-            figure(2)
+            figure(99)
+            set(gcf, 'Name', 'Output and Neural Activity', 'NumberTitle', 'off')
             clf
-            subplot(1,2,1)
+            subplot(2,1,1)
             hold on
             c = lines(size(plotStats.bigZ,3));
             for condCount = 1:size(plotStats.bigZ,3)
-                plot(plotStats.bigZ(:,:,condCount), 'Color', c(condCount,:))
-                plot(targettimes, plotStats.F{condCount}(:,targettimes)', '.', 'MarkerSize', 8, 'Color', c(condCount,:))
+                h2(condCount,:) = plot(plotStats.bigZ(:,:,condCount), 'Color', c(condCount,:));
+                h3(condCount,:) = plot(targettimes, plotStats.F{condCount}(:,targettimes)', '.', 'MarkerSize', 8, 'Color', c(condCount,:));
             end
-            subplot(1,2,2)
+            legend([h2(1,1) h3(1,1)], 'Network Output', 'Target Output', 'Location', 'SouthWest')
+            xlabel('Time Steps')
+            ylabel('Output')
+            subplot(2,1,2)
             hold on
             for condCount = 1:size(plotStats.bigR,3)
                 plot(plotStats.bigR(:,outputUnitIdent,condCount), 'Color', c(condCount,:))
             end
+            xlabel('Time Steps')
+            ylabel('Firing Rate')
         end
         drawnow
     end

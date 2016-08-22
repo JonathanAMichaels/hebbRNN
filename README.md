@@ -15,7 +15,7 @@
 DESCRIBE THIS
 
 ## Documentation & Examples
-All functions are documented throughout, and two examples are provided with the release.
+All functions are documented throughout, and two examples illustrating the intended use of the package are provided with the release.
 
 ### Example: a delayed nonmatch-to-sample task
 
@@ -45,7 +45,7 @@ If used in published work, please cite the work as:
 
 Jonathan A. Michaels, Hansjörg Scherberger (2016). hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks. doi: [http://dx.doi.org/10.5281/zenodo.59941](http://dx.doi.org/10.5281/zenodo.59941)
 
-In addition, please cite the paper acknowledged below.
+In addition, please cite the most recent version of the paper acknowledged below.
 
 ## Acknowledgements
 

@@ -15,15 +15,15 @@
 clear
 close all
 
-numConds = 4; % Number of peripheral targets. Try changing this number to alter the difficulty!
-moveTime = 150; % Total trial time
+numConds = 7; % Number of peripheral targets. Try changing this number to alter the difficulty!
+moveTime = 200; % Total trial time
 L = [3 3]; % Length of each segment of the arm
 
 %% Populate target function passthrough data
 % This is information that the user can define and passthrough to the
 % network output function
 targetFunPassthrough.L = L;
-targetFunPassthrough.kinTimes = moveTime-100 : moveTime; % Only allow movement for last 150ms
+targetFunPassthrough.kinTimes = moveTime-100 : moveTime; % Only allow movement for last 100ms
 
 %% General inputs and output
 inp = cell(1,numConds);
@@ -36,9 +36,7 @@ for cond = 1:numConds
     targ{cond} = [ones(moveTime,1)*sin(ang(cond)) ones(moveTime,1)*cos(ang(cond))]';
 end
 % In the center-out reaching task the network needs to produce joint angle
-% velocities of a two-segment arm to reach to a number of peripheral
-% targets in the 2D plane based on the desired target specified by the
-% input.
+% velocities of a two-segment arm to reac
 
 %% Initialize network parameters
 N = 200; % Number of neurons
@@ -47,28 +45,25 @@ I = size(inp{1},1); % Inputs
 p = 1; % Sparsity
 g = 1.1; % Spectral scaling
 dt = 1; % Time step
-tau = 30; % Time constant
+tau = 20; % Time constant
+
 
 %% Initialize learning parameters
 eta = 0.1; % Learning rate
 perturbProb = 3; % Frequency of neural perturbation per neuron (Hz)
 systemNoise = 0.0; % Network noise level
 x0 = zeros(N,1); % Initial activation state
-tolerance = 0.1; % Desired error tolerance
+tolerance = 0.25; % Desired error tolerance
 evalOpts = [2 20]; % Plotting level and frequency of evaluation
 targettimes = size(targ{cond},2); % times which are evaluated in the error calculation
 targetFun = @hebbRNN_COTargetFun; % handle of custom target function
 
 rng(1)
 %% Create network
-% This function initializes your network. Look inside to see information
-% about the many optional parameters
 net = hebbRNN_create_model(N, B, I, p, g, dt, tau, 'netNoiseSigma', systemNoise, 'useBiasNeurons', true, 'numBiasNeurons', 4, ...
-    'feedback', false, 'actFun', 'tanh', 'energyCost', 0.2);
+    'feedback', false, 'actFun', 'tanh', 'energyCost', 0.7);
 
 %% Train network
-% This step should take about 5 minutes, depending on your processor.
-% Look inside to see information about the many optional parameters.
 [net, learnStats] = hebbRNN_learn_model(x0, net, targ, perturbProb, eta, 'input', inp, ...
     'tolerance', tolerance, 'evalOpts', evalOpts, ...
     'targettimes', targettimes, ...
@@ -77,9 +72,11 @@ net = hebbRNN_create_model(N, B, I, p, g, dt, tau, 'netNoiseSigma', systemNoise,
 %% Run network
 [Z, R, X, errStats, kin] = hebbRNN_run_model(x0, net, targ, 'input', inp);
 
+
 %% Plot center-out reaching results
 c = lines(length(inp));
-figure(1)
+figure(3)
+clf
 for cond = 1:length(inp)
     h(cond) = filledCircle([targ{cond}(1,1) targ{cond}(2,1)], 0.2, 100, [0.9 0.9 0.9]);
     h(cond).EdgeColor = c(cond,:);
@@ -93,7 +90,7 @@ axis([-1.3 1.3 -1.3 1.3])
 axis square
 
 %% Play short movie showing trained movements for all directions
-figure(2)
+figure(4)
 set(gcf, 'Color', 'white')
 for cond = 1:length(inp)
     for t = 1:5:length(targetFunPassthrough.kinTimes)-1
@@ -112,7 +109,6 @@ for cond = 1:length(inp)
         axis([-1.2 4.5 kin(cond).initvals(2) 1.2])
         axis off
         drawnow
-        pause(0.01)
     end
     pause(0.2)
 end

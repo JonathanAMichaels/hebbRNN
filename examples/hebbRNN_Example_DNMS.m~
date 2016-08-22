@@ -47,8 +47,7 @@ end
 % separated inputs. Each input lasts 200ms and there is a 200ms gap between them.
 % The goal of the task is to respond with one value if the inputs were
 % identical, and a different value if they were not. This response must be
-% independent of the order of the signals and therefore requires the
-% network to remember the first input!
+% independent of the order of the signals
 
 %% Initialize network parameters
 N = 200; % Neurons
@@ -70,13 +69,11 @@ targettimes = size(targ{1},2)-199:size(targ{1},2); % times which are evaluated i
 
 rng(0)
 %% Create network
-% This function initializes your network. Look inside to see information
-% about the many optional parameters
-net = hebbRNN_create_model(N, B, I, p, g, dt, tau, 'netNoiseSigma', systemNoise, 'actFun', 'tanh');
+net = hebbRNN_create_model(N, B, I, p, g, dt, tau, 'netNoiseSigma', systemNoise,...
+    'feedback', false, 'actFun', 'tanh');
 
 %% Train network
-% This step should take about 5 minutes, depending on your processor.
-% Look inside to see information about the many optional parameters.
+% This step should take about 5 minutes, depending on your processor
 [net, learnStats] = hebbRNN_learn_model(x0, net, targ, perturbProb, eta, 'input', inp, ...
     'tolerance', tolerance, 'evalOpts', evalOpts, 'targettimes', targettimes);
 
