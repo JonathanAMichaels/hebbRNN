@@ -1,0 +1,17 @@
+{
+  "@context": "https://raw.githubusercontent.com/mbjones/codemeta/master/codemeta.jsonld",
+  "@type": "Code",
+  "author": [
+
+  ],
+  "identifier": "10.5281/zenodo.59941",
+  "codeRepository": "https://github.com/JonathanAMichaels/hebbRNN",
+  "datePublished": "2016-08-22",
+  "dateModified": "2016-08-22",
+  "dateCreated": "2016-08-22",
+  "description": "The current package is a Matlab implementation of a biologically-plausible training rule for recurrent neural networks using a delayed and sparse reward signal.",
+  "keywords": "learning, plasticity, neural network, Hebbian, RNN",
+  "license": "GPL v3.0",
+  "title": "hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks",
+  "version": "v1.1"
+}
