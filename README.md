@@ -2,9 +2,9 @@
 
 **Authors:** [Jonathan A. Michaels](http://www.jmichaels.me/) & [Hansjörg Scherberger](http://www.dpz.eu/en/unit/neurobiology.html)
 
-**Version:** 1.1
+**Version:** 1.2
 
-**Date:** 22.08.2016
+**Date:** 23.08.2016
 
 [![DOI](https://zenodo.org/badge/22906/JonathanAMichaels/hebbRNN.svg)](https://zenodo.org/badge/latestdoi/22906/JonathanAMichaels/hebbRNN)
 
