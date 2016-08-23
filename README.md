@@ -10,29 +10,9 @@
 
 ## What is hebbRNN?
 
-How does our brain learn to produce the large, impressive, and flexible array of motor behaviors we possess? In recent years, there has been renewed interest in modeling complex human behaviors such as memory and motor skills using neural networks (Laje et al., 2013; Hennequin et al., 2014; Carnevale et al., 2015; Sussillo et al., 2015; Rajan et al., 2016). However, training these networks to produce meaningful behavior has proven difficult. Furthermore, the most common methods are generally not biologically-plausible and rely on information not local to the synapses of individual neurons as well as instantaneous reward signals (Sussillo and Abbott, 2009; Martens and Sutskever, 2011; Song et al., 2016).
+How does our brain learn to produce the large, impressive, and flexible array of motor behaviors we possess? In recent years, there has been renewed interest in modeling complex human behaviors such as memory and motor skills using neural networks. However, training these networks to produce meaningful behavior has proven difficult. Furthermore, the most common methods are generally not biologically-plausible and rely on information not local to the synapses of individual neurons as well as instantaneous reward signals.
 
-The current package is a Matlab implementation of a biologically-plausible training rule for recurrent neural networks using a delayed and sparse reward signal (Miconi, 2016). On individual trials, input is perturbed randomly at the synapses of individual neurons and these potential weight changes are accumulated in a Hebbian manner (multiplying pre- and post-synaptic weights) in an eligibility trace. At the end of each trial, a reward signal is determined based on the overall performance of the network in achieving the desired goal, and this reward is compared to the expected reward. The difference between the observed and expected reward is used in combination with the eligibility trace to strengthen or weaken corresponding synapses within the network, leading to proper network performance over time.
-
-## References
-
-Carnevale F, de Lafuente V, Romo R, Barak O, Parga N (2015) Dynamic Control of Response Criterion in Premotor Cortex during Perceptual Detection under Temporal Uncertainty. Neuron 86:1067–1077.
-
-Hennequin G, Vogels TP, Gerstner W (2014) Optimal control of transient dynamics in balanced networks supports generation of complex movements. Neuron 82:1394–1406.
-
-Laje R, Buonomano DV, Buonomano DV (2013) Robust timing and motor patterns by taming chaos in recurrent neural networks. Nat Neurosci 16:925–933.
-
-Martens J, Sutskever I (2011) Learning recurrent neural networks with hessian-free optimization. Proceedings of the 28th International Conference on Machine Learning.
-
-Miconi T (2016) Flexible decision-making in recurrent neural networks trained with a biologically plausible rule. biorxiv.
-
-Rajan K, Harvey CD, Tank DW (2016) Recurrent Network Models of Sequence Generation and Memory. Neuron 90:128–142.
-
-Song HF, Yang GR, Wang X-J (2016) Training Excitatory-Inhibitory Recurrent Neural Networks for Cognitive Tasks: A Simple and Flexible Framework. PLoS Comput Biol 12:e1004792.
-
-Sussillo D, Abbott LF (2009) Generating coherent patterns of activity from chaotic neural networks. Neuron 63:544–557.
-
-Sussillo D, Churchland MM, Kaufman MT, Shenoy KV (2015) A neural network that finds a naturalistic solution for the production of muscle activity. Nat Neurosci 18:1025–1033.
+The current package is a Matlab implementation of a biologically-plausible training rule for recurrent neural networks using a delayed and sparse reward signal. On individual trials, input is perturbed randomly at the synapses of individual neurons and these potential weight changes are accumulated in a Hebbian manner (multiplying pre- and post-synaptic weights) in an eligibility trace. At the end of each trial, a reward signal is determined based on the overall performance of the network in achieving the desired goal, and this reward is compared to the expected reward. The difference between the observed and expected reward is used in combination with the eligibility trace to strengthen or weaken corresponding synapses within the network, leading to proper network performance over time.
 
 
 ## Documentation & Examples
