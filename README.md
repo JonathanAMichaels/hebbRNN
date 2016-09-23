@@ -38,7 +38,7 @@ To install the package, simply add all folders and subfolders to the Matlab path
 
 ### Dependencies
 
-The hebbRNN repository has no dependecies beyond built-in Matlab functions.
+The hebbRNN repository has no dependencies beyond built-in Matlab functions.
 
 
 ## Citation
