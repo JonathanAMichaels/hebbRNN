@@ -2,11 +2,11 @@
 
 **Authors:** [Jonathan A. Michaels](http://www.jmichaels.me/) & [Hansjörg Scherberger](http://www.dpz.eu/en/unit/neurobiology.html)
 
-**Version:** 1.2
+**Version:** 1.3
 
-**Date:** 23.08.2016
+**Date:** 23.09.2016
 
-[![DOI](https://zenodo.org/badge/22906/JonathanAMichaels/hebbRNN.svg)](https://zenodo.org/badge/latestdoi/22906/JonathanAMichaels/hebbRNN)
+[![DOI](http://joss.theoj.org/papers/10.21105/joss.00060/status.svg)](http://dx.doi.org/10.21105/joss.00060)
 
 ## What is hebbRNN?
 
@@ -45,7 +45,7 @@ The hebbRNN repository has no dependencies beyond built-in Matlab functions.
 
 If used in published work, please cite the work as:
 
-Jonathan A. Michaels, Hansjörg Scherberger (2016). hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks. doi: [http://dx.doi.org/10.5281/zenodo.59941](http://dx.doi.org/10.5281/zenodo.59941)
+Jonathan A. Michaels, Hansjörg Scherberger (2016). hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks. *The Journal of Open Software*. doi:[http://dx.doi.org/10.21105/joss.00060](http://dx.doi.org/10.21105/joss.00060)
 
 In addition, please cite the most recent version of the paper acknowledged below.
 
