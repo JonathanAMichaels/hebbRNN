@@ -45,7 +45,7 @@ The hebbRNN repository has no dependencies beyond built-in Matlab functions.
 
 If used in published work, please cite the work as:
 
-Jonathan A. Michaels, Hansjörg Scherberger (2016). hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks. *The Journal of Open Software*. doi:[http://dx.doi.org/10.21105/joss.00060](http://dx.doi.org/10.21105/joss.00060)
+Jonathan A. Michaels, Hansjörg Scherberger (2016). hebbRNN: A Reward-Modulated Hebbian Learning Rule for Recurrent Neural Networks. *The Journal of Open Source Software*. doi:[http://dx.doi.org/10.21105/joss.00060](http://dx.doi.org/10.21105/joss.00060)
 
 In addition, please cite the most recent version of the paper acknowledged below.
 
