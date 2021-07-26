@@ -206,6 +206,7 @@ outputUnitIdent = net.outputUnitIdent;
 perturbProb = perturbProb / 1000 * dt;
 
 mErr = Inf; % Initial error
+err = Inf; % Initial error
 pass = 1; % Initial pass number
 errStats.err = []; errStats.pass = []; % Initialize error statistics
 Rpred = zeros(1,length(F)); % Initialize expected error
