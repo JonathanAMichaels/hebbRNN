@@ -396,9 +396,11 @@ toc
             
             
             %% Maintain elegibility trace (only if network was perturbed)
-            if thisPerturbProb ~= -1
-                deltax = (x - xtrace).^3; % supra-linear (must maintain sign)
-                e = e + rprev*(deltax');                
+            if thisPerturbProb ~= -1              
+                % Original version did the cubing before multiplying by the rates
+                %deltax = (x - xtrace).^3;
+                %e = e + rprev*(deltax');        
+                e = e + (rprev*(x - xtrace)').^3; % supra-linear (must maintain sign)
                 %% Maintain activation trace
                 xtrace = alphaX * xtrace + (1.0 - alphaX) * x;
             end
